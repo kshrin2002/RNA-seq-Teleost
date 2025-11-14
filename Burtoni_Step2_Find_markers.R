@@ -1,5 +1,10 @@
+library(Seurat)
+
+setwd("C://Users//jayan//Desktop//RNA-seq-Teleost")
+
+hypo <- readRDS("Burtoni_cluster.rds")
 burtoni.markers <- FindAllMarkers(
-  burtoni.snseq.combined.sct,
+  hypo,
   only.pos = TRUE,
   min.pct = 0.25, 
   group.by = "seurat_clusters",
@@ -21,8 +26,8 @@ top.markers_burtoni %>%
   print(n = Inf)
 
 # based on
-levels(burtoni.snseq.combined.sct)
-length(levels(burtoni.snseq.combined.sct))
+levels(hypo)
+length(levels(hypo))
 top10_burtoni <- burtoni.markers %>%
   group_by(cluster) %>%
   filter(avg_log2FC > 1) %>%         

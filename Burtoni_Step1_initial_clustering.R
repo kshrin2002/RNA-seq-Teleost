@@ -22,11 +22,11 @@ burtoni.snseq.combined.sct <- AddMetaData(burtoni.snseq.combined.sct, metadata =
 # Skipping prep and regular clustering steps since it was already done, running it again to have umap in the script
 hypo <- burtoni.snseq.combined.sct <- RunUMAP(burtoni.snseq.combined.sct, reduction = "pca", dims = 1:20, seed.use = 42)
 
-# DimPlot(burtoni.snseq.combined.sct, reduction = "umap", group.by = "sctypemarkers.hypo.broad", label = TRUE, repel = TRUE) 
+DimPlot(burtoni.snseq.combined.sct, reduction = "umap", group.by = "sctypemarkers.hypo.broad", label = TRUE, repel = TRUE) 
 
 
 # Save as Robj
 hypo.ast <- hypo
-save(hypo.ast, file = "C://Users//jayan//Desktop//RNA-seq-Teleost//Burtoni_cluster.Robj")
+saveRDS(hypo.ast, file = "C://Users//jayan//Desktop//RNA-seq-Teleost//Burtoni_cluster.rds")
 
 
