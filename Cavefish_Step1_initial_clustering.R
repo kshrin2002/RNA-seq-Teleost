@@ -54,6 +54,9 @@ DimPlot(pbmc, reduction = "pca") + NoLegend()
 DimHeatmap(pbmc, dims = 1, cells = 500, balanced = TRUE)
 DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
 
+pbmc <- FindNeighbors(pbmc, dims = 1:10)
+pbmc <- FindClusters(pbmc, resolution = 0.5)
+
 pbmc <- RunUMAP(pbmc, reduction = "pca", dims = 1:20, seed.use = 42)
 
 DimPlot(pbmc, reduction = "umap", group.by = "Cluster", label = TRUE, repel = TRUE) 
