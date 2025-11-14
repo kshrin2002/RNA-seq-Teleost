@@ -1,0 +1,9 @@
+# R objects
+*.rds
+*.RData
+.Rhistory
+.Rproj.user/
+
+# Other common junk
+*.log
+.DS_Store
